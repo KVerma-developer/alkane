@@ -4,6 +4,7 @@ const app = express();
 const cors = require("cors");
 const LoginRoutes = require("./routes/login");
 const UsersRoutes = require("./routes/users");
+const PostsRoute = require("./routes/posts");
 
 const connection = require("./db");
 const PORT = process.env.PORT
@@ -18,6 +19,7 @@ app.use(cors());
 
 app.use('/api/users',UsersRoutes)
 app.use('/api/login',LoginRoutes)
+app.use("/api/posts", PostsRoute);
 
 app.listen(PORT,()=>{
     console.log("server is listening on PORT : "+ PORT)
